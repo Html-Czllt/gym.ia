@@ -1,0 +1,164 @@
+/* Estilos da página inicial */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000; /* Preto puro */
+    color: #2E8B57; /* Verde marinho para o texto */
+}
+
+.content {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 0 10px; /* Adiciona um pouco de espaçamento nas laterais */
+    box-sizing: border-box; /* Inclui o padding na largura total */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza itens horizontalmente */
+}
+
+.message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2E8B57; /* Verde marinho para boa legibilidade sobre o fundo preto */
+}
+
+.central-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px 0;
+    border-radius: 8%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s, filter 0.5s;
+}
+
+.central-image:hover {
+    transform: scale(1.1) translateZ(0); /* Amplia a imagem ao passar o mouse */
+}
+
+.central-image:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Camada de sobreposição sutil para efeito de profundidade */
+    transition: opacity 0.5s;
+    opacity: 0;
+}
+
+.central-image:hover::before {
+    opacity: 1; /* Aumenta a opacidade ao passar o mouse */
+}
+
+/* Efeito de movimento da imagem conforme o mouse se move */
+.central-image {
+    perspective: 1000px; /* Define a perspectiva */
+}
+
+.central-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: transform 0.5s;
+}
+
+.central-image:hover::after {
+    transform: translateX(calc((100% - 100vw) / 2)) translateY(calc((100% - 100vh) / 2)); /* Move a imagem com base na posição do mouse */
+}
+
+button {
+    background-color: #000000; /* Preto puro */
+    border: 2px solid #2E8B57; /* Verde marinho para a borda */
+    color: #2E8B57; /* Verde marinho para o texto */
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #2E8B57; /* Verde marinho para o fundo ao passar o mouse */
+    color: #000000; /* Preto para o texto ao passar o mouse */
+    border-color: #2E8B57; /* Verde marinho para a borda ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(46, 139, 87, 0.2); /* Sombra verde marinho ao passar o mouse */
+}
+
+/* Estilos do conteúdo da narrativa */
+#narrative-card {
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 12px rgb(46, 139, 87); /* Sombra verde marinho para destacar */
+    color: #2E8B57; /* Verde marinho para o texto */
+    max-width: 100%; /* Garante que o cartão não ultrapasse a tela */
+    margin: auto; /* Centralizar o cartão */
+}
+
+/* Estilos das opções de resposta */
+#choices-container button {
+    background-color: #000000; /* Preto puro */
+    border: 2px solid #2E8B57; /* Verde marinho para a borda */
+    color: #2E8B57; /* Verde marinho para o texto */
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+#choices-container button:hover {
+    background-color: #2E8B57; /* Verde marinho para o fundo ao passar o mouse */
+    color: #000000; /* Preto para o texto ao passar o mouse */
+    border-color: #2E8B57; /* Verde marinho para a borda ao passar o mouse */
+    box-shadow: 0px 8px 15px rgba(46, 139, 87, 0.2); /* Sombra verde marinho ao passar o mouse */
+}
+
+#end-text {
+    font-size: 24px;
+    color: #2E8B57; /* Verde marinho */
+}
+
+/* Media queries */
+@media (max-width: 600px) {
+    body {
+        display: flex;
+        flex-direction: column; /* Alinha itens verticalmente */
+        justify-content: center;
+        align-items: center;
+        padding: 0; /* Remove o padding */
+    }
+
+    .content {
+        width: 100%;
+        padding: 0; /* Remove o padding para evitar deslocamento */
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    #narrative-card {
+        padding: 15px;
+        max-width: 100%; /* Garante que o cartão não ultrapasse a tela */
+        box-sizing: border-box; /* Inclui padding na largura total */
+    }
+
+    #narrative-text {
+        font-size: 16px;
+    }
+}
