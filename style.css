@@ -36,12 +36,10 @@ body {
     border-radius: 8%;
     position: relative;
     overflow: hidden;
-    transition: transform 0.5s, filter 0.5s;
-}
+ 
 
-.central-image:hover {
-    transform: scale(1.1) translateZ(0); /* Amplia a imagem ao passar o mouse */
-}
+ }
+
 
 .central-image:hover::before {
     content: '';
